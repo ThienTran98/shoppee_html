@@ -1,0 +1,228 @@
+:root {
+    --primary-color: #ed4d2b;
+    --white-color: #fff ;
+    --black-color: #000 ;
+    --text-color: #333 ;
+    --border-color :#dbdbdb;
+    --header-height : 120px;
+    --navbar-height : 38px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+    --header-sort-bar-height : 46px
+}
+* {
+ box-sizing: inherit; 
+}
+html {
+    /* 62.5 là bằng 10*/
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+/* Responsive */
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.grid__full-width {
+    width: 100%;
+}
+/* TESt */
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.grid__col-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+.grid__col-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+.grid__col-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3333%;
+}
+.grid__col-12 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+}
+/* animation */
+@keyframes FadeIn {
+    from {      
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+/* notice and language  (lớn lên)*/
+
+@keyframes Growth {
+    from {
+        transform: scale(var(--growth-from));
+    } to {
+
+        transform: scale(var(--growth-to)); 
+    }
+}
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+}
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0 , 0, 0, 0.4);
+}
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 0.7 ;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+    animation: Growth linear 0.1s;
+}
+/* button */
+.btn {
+    min-width: 124px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    padding: 0 4px;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--white-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+}
+.btn.btn--size-s {
+    font-size: 1.2rem;
+    height: 32px;
+    padding: 0 8px;
+}
+.btn.btn--normal:hover {
+    background-color:rgba(0,0,0,0.06);
+}
+
+.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+/* Select input */
+.select-input {
+    display: flex;
+    justify-content: space-between;
+    height: 34px;
+    min-width: 200px;
+    align-items: center;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    padding: 0 12px;
+    position: relative;
+}
+.select-input:hover {
+    background-color: #fdfdfd;
+    cursor: pointer;
+}
+.select-input:hover .select-input__list {
+    display: block;
+}
+.select-input__label {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+.select-input__label-icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+/* select_list */
+.select-input__list {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 0;
+    right: 0;
+    border-radius: 3px;
+    background-color: var(--white-color);
+    padding: 10px 16px;
+    display: none;
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(0 , 0, 0, 0.4);
+}
+.select-input__list::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 6px;
+    top: -5%;
+    right: 0;
+}
+.select-input__list-item {
+    list-style: none;
+}
+.select-input__link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    display: block;
+    padding: 5px 0;
+}
+.select-input__link:hover {
+    color: var(--primary-color);
+
+}
+/* Pagination */
+.home-product__pagination-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+}
+.home-product__pagination-item {
+    list-style: none;
+}
+.home-product__pagination-item--active .home-product__pagination-item-link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.home-product__pagination-item--active:hover .home-product__pagination-item-link {
+    opacity: 0.7;
+}
+.home-product__pagination-item-link {
+    --height : 30px;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #94969d;
+    text-decoration: none;
+    display: block;
+    min-width: 40px;
+    height: var(--height);
+    margin: 0 14px;
+    line-height: var(--height);
+    text-align: center;
+    border-radius: 3px;
+}
+.home-product__pagination-icon {
+    font-size: 1.8rem;
+}
